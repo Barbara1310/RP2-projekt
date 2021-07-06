@@ -11,9 +11,8 @@
 
 <body class="container-fluid ">
     <br>
-    <br>
-    <h1>Welcome, <?php if (isset($_SESSION["user"])) echo $_SESSION["user"]->getUsername() . "!";
-                    else echo " please login or register!"; ?></h1>
+    <h1><?php if (isset($_SESSION["user"])) echo $_SESSION["user"]->username . ", dobrodosli u e-spomenar!";
+        else echo " please login or register!"; ?></h1>
 
     <?php
     if (isset($_SESSION["user"])) require "_navBar.php";
