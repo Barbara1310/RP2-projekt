@@ -6,6 +6,7 @@
     <title><?php if (isset($title)) echo $title;
             else echo "E-spomenar"; ?></title>
     <link rel="stylesheet" href="<?php echo __SITE_URL; ?>/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo __SITE_URL; ?>/view/style.css">
     <script type="text/javascript" src="<?php echo __SITE_URL; ?>/static/jquery-min.js"></script>
 </head>
 

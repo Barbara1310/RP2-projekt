@@ -14,7 +14,7 @@ class UserService
 
         $row = $st->fetch();
 
-        $user = new User($row['id'], $row['username'], $row['password_hash'], $row['email'], $row['has_registered'], $row['registration_sequence'], $row['is_admin']);
+        $user = new User($row['id'], $row['username'], $row['password_hash'], $row['email'], $row['has_registered'], $row['registration_sequence'], $row['is_admin'], $row['upisan']);
         return $user;
     }
 
@@ -27,16 +27,16 @@ class UserService
 
         $row = $st->fetch();
 
-        $user = new User($row['id'], $row['username'], $row['password_hash'], $row['email'], $row['has_registered'], $row['registration_sequence'], $row['is_admin']);
+        $user = new User($row['id'], $row['username'], $row['password_hash'], $row['email'], $row['has_registered'], $row['registration_sequence'], $row['is_admin'], $row['upisan']);
         return $user;
     }
 
     static function saveUser($user)
     {
         $db = DB::getConnection();
-        $st = $db->prepare("INSERT INTO p_users (username, password_hash, email, registration_sequnce, is_admin) VALUES (:username, :password_hash, :email, :reg_seq, :is_admin)");
+        $st = $db->prepare("INSERT INTO p_users (username, password_hash, email, registration_sequnce, is_admin) VALUES (:username, :password_hash, :email, :reg_seq, :is_admin, :upisan)");
 
-        $st->execute(['username' => $user->username, 'password_hash' => $user->password_hash, 'email' => $user->email, 'reg_seq' => $user->registration_sequence, 'is_admin' => $user->is_admin]);
+        $st->execute(['username' => $user->username, 'password_hash' => $user->password_hash, 'email' => $user->email, 'reg_seq' => $user->registration_sequence, 'is_admin' => $user->is_admin, 'upisan' => $user->upisan]);
     }
 
     static function updateUser($user)

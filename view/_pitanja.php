@@ -14,6 +14,12 @@
         <li class="page-item">
             <a class="page-link" href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar&pitanje=4">4</a>
         </li>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar&pitanje=5">5</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar&pitanje=6">6</a>
+        </li>
     </ul>
 </div>
 
