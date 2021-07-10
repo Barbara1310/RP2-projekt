@@ -15,4 +15,4 @@
         else echo " please login or register!"; ?></h1>
 
     <?php
-    if (isset($_SESSION["user"])) require "_navBar.php";
+    if (isset($_SESSION["user"])) require_once "_navBar.php";

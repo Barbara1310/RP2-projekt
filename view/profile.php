@@ -29,3 +29,7 @@ else $user = $_SESSION["user"];
             <hr>
         </div>
     </div>
+</div>
+<?php
+require_once __SITE_PATH . '/view/_footer.php';
+?>
