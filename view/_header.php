@@ -12,7 +12,7 @@
 
 <body class="container-fluid ">
     <br>
-    <h1><?php if (isset($_SESSION["user"])) echo $_SESSION["user"]->username . ", dobrodosli u e-spomenar!";
+    <h1><?php if (isset($_SESSION["user"])) echo $_SESSION["user"]->username . ", dobrodošli u e-spomenar!";
         else echo " please login or register!"; ?></h1>
 
     <?php

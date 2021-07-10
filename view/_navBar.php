@@ -1,6 +1,6 @@
 <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/fill" class="nav-link" type="button">Upisi se u spomenar</a>
+    <div class="nav nav-tabs nav justify-content-center" id="nav-tab" role="tablist">
+        <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/fill" class="nav-link" type="button">Upiši se u spomenar</a>
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/my_answers" class="nav-link" type="button">Moji odgovori</a>
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/read" class="nav-link" type="button">Pogledaj spomenar</a>
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=users/index" class="nav-link" type="button">Moj Profil</a>

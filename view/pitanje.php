@@ -6,9 +6,8 @@ else $pitanje = $_SESSION["pitanje"];
 if (!isset($_SESSION["odgovori"])) return;
 else $odgovori = $_SESSION["odgovori"];
 
-if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert-danger">' . $errorMessage . "</p>";
+if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert-danger">' . $errorMessage . "</p>"; ?>
 
-?>
 <br>
 <br>
 <div class='pitanje_div'>
@@ -21,15 +20,15 @@ if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert
         }
         ?>
 
-        <?php if (isset($_SESSION['akcija']) && $_SESSION['akcija'] == 'popuni') { ?>
+        <?php if (isset($_SESSION['akcija']) && $_SESSION['akcija'] == 'popuni' && $_SESSION['user']->odgovoreno[$pitanje->id - 1] == 0) { ?>
             <li>
                 <form action="<?php echo __SITE_URL; ?>/index.php?rt=spomenar&pitanje=<?php echo $pitanje->id ?>" method="POST">
                     <input type="text" name="odgovor">
-                    <button type="submit">Spremi!</button>
+                    <button class="btn btn-outline-success" type="submit">Spremi!</button>
                 </form>
             </li>
-        <?php }
-        unset($_SESSION['akcija']);
+        <?php
+        }
         ?>
     </ul>
 </div>

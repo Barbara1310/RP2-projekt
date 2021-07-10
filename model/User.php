@@ -2,9 +2,9 @@
 
 class User
 {
-    protected $id, $username, $password_hash, $email, $has_registered, $registration_sequence, $is_admin, $upisan;
+    protected $id, $username, $password_hash, $email, $has_registered, $registration_sequence, $is_admin, $odgovoreno;
 
-    function __construct($id, $username, $password_hash, $email, $has_registered, $registration_sequence, $is_admin, $upisan)
+    function __construct($id, $username, $password_hash, $email, $has_registered, $registration_sequence, $is_admin)
     {
         $this->id = $id;
         $this->username = $username;
@@ -13,7 +13,7 @@ class User
         $this->has_registered = $has_registered;
         $this->registration_sequence = $registration_sequence;
         $this->is_admin = $is_admin;
-        $this->upisan = $upisan;
+        $this->odgovoreno = array();
     }
 
     function __get($prop)
@@ -24,5 +24,10 @@ class User
     {
         $this->$prop = $val;
         return $this;
+    }
+
+    function setPopunjeno($idx)
+    {
+        $this->odgovoreno[$idx] = 1;
     }
 }

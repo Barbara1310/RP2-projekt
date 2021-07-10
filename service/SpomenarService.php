@@ -5,6 +5,20 @@ require_once __SITE_PATH . '/model/Pitanje.php';
 
 class SpomenarService
 {
+    static function getPitanjaAll()
+    {
+        $db = DB::getConnection();
+
+        $st = $db->prepare('SELECT * FROM p_questions');
+        $st->execute([]);
+
+        $pitanja = array();
+        while ($row = $st->fetch()) {
+            $pitanja[] = new Pitanje($row['id'], $row['question']);;
+        }
+        return $pitanja;
+    }
+
     static function getPitanjeId($pitanje)
     {
         $db = DB::getConnection();
@@ -14,7 +28,6 @@ class SpomenarService
 
         $row = $st->fetch();
 
-        // $user = new User($row['id'], $row['username'], $row['password_hash'], $row['email'], $row['has_registered'], $row['registration_sequence'], $row['is_admin']);
         return $row['id'];
     }
 
