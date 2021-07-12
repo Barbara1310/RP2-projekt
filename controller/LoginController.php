@@ -72,7 +72,7 @@ class loginController extends BaseController
                 $user->username = $username;
                 $user->email = $email;
                 $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
-                $user->upisan = 0;
+                $user->is_admin = 0;
                 $link = '<a href = "http://' . $_SERVER["HTTP_HOST"] . __SITE_URL . "/index.php?rt=login/finishRegistration&sequence=";
                 $sequence = "";
 

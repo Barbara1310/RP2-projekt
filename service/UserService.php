@@ -34,7 +34,7 @@ class UserService
     static function saveUser($user)
     {
         $db = DB::getConnection();
-        $st = $db->prepare("INSERT INTO p_users (username, password_hash, email, registration_sequnce, is_admin) VALUES (:username, :password_hash, :email, :reg_seq, :is_admin)");
+        $st = $db->prepare("INSERT INTO p_users (username, password_hash, email, registration_sequence, is_admin) VALUES (:username, :password_hash, :email, :reg_seq, :is_admin)");
 
         $st->execute(['username' => $user->username, 'password_hash' => $user->password_hash, 'email' => $user->email, 'reg_seq' => $user->registration_sequence, 'is_admin' => $user->is_admin]);
     }
