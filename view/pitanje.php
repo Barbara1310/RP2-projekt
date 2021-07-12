@@ -20,9 +20,9 @@ if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert
         }
         ?>
 
-        <?php if (isset($_SESSION['akcija']) && $_SESSION['akcija'] == 'popuni' && $_SESSION['user']->odgovoreno[$pitanje->id - 1] == 0) { ?>
+        <?php if (isset($_SESSION['akcija']) && $_SESSION['akcija'] == 'fill' && $_SESSION['user']->odgovoreno[$pitanje->id - 1] == 0) { ?>
             <li>
-                <form action="<?php echo __SITE_URL; ?>/index.php?rt=spomenar&pitanje=<?php echo $pitanje->id ?>" method="POST">
+                <form action="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/<?php echo $_SESSION['akcija'] . '&pitanje=' . $pitanje->id ?>" method="POST">
                     <input type="text" name="odgovor">
                     <button class="btn btn-outline-success" type="submit">Spremi!</button>
                 </form>

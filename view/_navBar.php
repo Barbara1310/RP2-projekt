@@ -5,7 +5,7 @@
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/read" class="nav-link" type="button">Pogledaj spomenar</a>
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=users/index" class="nav-link" type="button">Moj Profil</a>
         <?php if (isset($_SESSION["user"]) && $_SESSION["user"]->is_admin) { ?>
-            <a href="<?php echo __SITE_URL; ?>/index.php?rt=questions/add_question" class="nav-link" type="button">Dodaj novo pitanje</a>
+            <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/add_question" class="nav-link" type="button">Dodaj novo pitanje</a>
         <?php } ?>
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=login/processLogout" class="btn btn-danger" type="button">Logout</a>
     </div>

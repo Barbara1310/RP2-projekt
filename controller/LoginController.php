@@ -62,32 +62,34 @@ class loginController extends BaseController
             $this->registry->template->error = true;
             $this->registry->template->errorMessage = "Enter all the fields!";
             $this->registry->template->show("login");
-        } elseif (UserService::getUserByUsername($username)) {
-            $this->registry->template->error = true;
-            $this->registry->template->errorMessage = "Username already exists!";
-            $this->registry->template->show("login");
         } else {
-            $user = new User();
-            $user->username = $username;
-            $user->email = $email;
-            $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
-            $user->upisan = 0;
-            $link = '<a href = "http://' . $_SERVER["HTTP_HOST"] . __SITE_URL . "/index.php?rt=login/finishRegistration&sequence=";
-            $sequence = "";
+            $user = UserService::getUserByUsername($username);
+            if (isset($user->username)) {
+                $this->registry->template->error = true;
+                $this->registry->template->errorMessage = "Username already exists!";
+                $this->registry->template->show("login");
+            } else {
+                $user->username = $username;
+                $user->email = $email;
+                $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
+                $user->upisan = 0;
+                $link = '<a href = "http://' . $_SERVER["HTTP_HOST"] . __SITE_URL . "/index.php?rt=login/finishRegistration&sequence=";
+                $sequence = "";
 
-            for ($i = 0; $i < random_int(10, 20); $i++) $sequence .= chr(random_int(97, 122));
-            $link .= $sequence . '">link</a>';
-            $user->registration_sequence = $sequence;
-            UserService::saveUser($user);
-            $subject = "Registration for e-spomenar";
-            $body = "Click on the followinng " . $link . " to finish your registration for e-spomenar!";
-            $headers = "Content-type: text/html\r\n";
-            $headers .= "To: " . $email . "\r\n";
-            $headers .= 'From: e-spomenar <e@spomenar.com>' . "\r\n";
-            if (mail($email, $subject, $body, $headers)) {
-                echo "Check your mail to finish a registration :)";
-                return;
-            } else echo "Something's wrong: "; //. var_dump(error_get_last());
+                for ($i = 0; $i < random_int(10, 20); $i++) $sequence .= chr(random_int(97, 122));
+                $link .= $sequence . '">link</a>';
+                $user->registration_sequence = $sequence;
+                UserService::saveUser($user);
+                $subject = "Registration for e-spomenar";
+                $body = "Click on the followinng " . $link . " to finish your registration for e-spomenar!";
+                $headers = "Content-type: text/html\r\n";
+                $headers .= "To: " . $email . "\r\n";
+                $headers .= 'From: e-spomenar <e@spomenar.com>' . "\r\n";
+                if (mail($email, $subject, $body, $headers)) {
+                    echo "Check your mail to finish a registration :)";
+                    return;
+                } else echo "Something's wrong: "; //. var_dump(error_get_last());
+            }
         }
     }
 

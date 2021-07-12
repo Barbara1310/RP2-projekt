@@ -75,4 +75,11 @@ class SpomenarService
         $st = $db->prepare('INSERT INTO p_answers (id_question, answer, id_user) VALUES (:pitanje_id, :answer, :user_id)');
         $st->execute(['pitanje_id' => $pitanje_id, 'answer' => $odgovor, 'user_id' => $user_id]);
     }
+
+    static function addNewQuestion($question)
+    {
+        $db = DB::getConnection();
+        $st = $db->prepare('INSERT INTO p_questions (question) VALUES (:question)');
+        $st->execute(['question' => $question]);
+    }
 }
