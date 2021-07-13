@@ -5,6 +5,8 @@ require_once __SITE_PATH . '/model/User.php';
 
 class UserService
 {
+    // Dohvati usera iz p_users tablice po username-u.
+    // Funckija vraca klasu User.
     static function getUserByUsername($username)
     {
         $db = DB::getConnection();
@@ -18,6 +20,8 @@ class UserService
         return $user;
     }
 
+    // Dohvati usera iz p_users tablice po registrationSequence-u.
+    // Funckija vraca klasu User.
     static function getUserByRegSeq($reg_seq)
     {
         $db = DB::getConnection();
@@ -31,6 +35,7 @@ class UserService
         return $user;
     }
 
+    // Spremi novog usera u tablicu p_users. Funkcija se poziva prilikom registracije novog usera.
     static function saveUser($user)
     {
         $db = DB::getConnection();
@@ -39,6 +44,7 @@ class UserService
         $st->execute(['username' => $user->username, 'password_hash' => $user->password_hash, 'email' => $user->email, 'reg_seq' => $user->registration_sequence, 'is_admin' => $user->is_admin]);
     }
 
+    // Updateaj usera u tablici p_users. Funckija se poziva kad se potvrdi registracija klikom na link u mailu.
     static function updateUser($user)
     {
         $db = DB::getConnection();
