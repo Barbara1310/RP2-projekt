@@ -1,5 +1,17 @@
 <br><br>
 
+<!-- Ovo je prikaz stranica pomocu kojih user prebacuje view s pitanja na pitanje.
+     Koristi se Bootstrap stil.
+     Dinamicki se stvori stranica koliko ima postavljenih pitanja kako bi bilo moguce dodavati nova pitanja u spomenar.
+     Svaki clan neuredjene liste predstavlja link na jedno od pitanja. Klikom na link poziva se jedna od funckija
+            fill() -> za popunjavanje spomenara
+            read() -> za pregled spomenara
+            my_answers() -> za pregled vlastitih odgovora
+     iz SpomenarController.php, te mu se takodjer broj pitanja prosljedjuje kroz GET['pitanje'].
+
+     Aktivni link (stranica) budu plavi kako bi user znao na kojem je pitanju. To je implementirano pomocu js funkcije na nacin
+     da se aktivnom pitanju pridjeljuje klasa class=active.
+    -->
 <div id="stranice">
     <ul class="pagination justify-content-center" style="margin:20px 0">
         <?php
@@ -12,6 +24,8 @@
     </ul>
 </div>
 
+<!-- JS za dodavanje klase active aktivnom pitanju.
+     BUG: kad je aktivno pitanje br2 svi linkovi su plavi. -->
 <script>
     $(document).ready(function() {
         params = {};

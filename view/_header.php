@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Header - ukljucuje Bootstrap, vlastiti style.css te jquery.
+     Ispisuje poruku login poruku ili poruku dobrodoslice ukoliko je user ulogiran. -->
+
 <head>
     <meta charset="utf8">
     <title><?php if (isset($title)) echo $title;

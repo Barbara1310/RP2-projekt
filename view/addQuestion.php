@@ -1,8 +1,12 @@
 <?php
 require_once __SITE_PATH . '/view/_header.php';
 
+// Ispis u slucaju greske
 if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert-danger">' . $errorMessage . "</p>"; ?>
 
+<!-- Forma za dodavanje novog pitanja u spomenar.
+     Forma je napravljena sa Bootstrap stilom.
+     Na submit se poziva funckija add_question iz SpomenarControler.php -->
 <br>
 <br>
 <form method="post" action="<?php echo __SITE_URL . '/index.php?rt=spomenar/add_question' ?>">

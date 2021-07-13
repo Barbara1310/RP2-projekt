@@ -1,3 +1,6 @@
+<!-- Navigacija u Bootstrap stilu.
+     Link 'Dodaj novo pitanje' vidljiv samo admin userima.
+     JS funckija koja oboji trenutno aktivni link u sivo. Dodaje se klasa active za aktivni link. -->
 <nav>
     <div class="nav nav-tabs nav justify-content-center" id="nav-tab" role="tablist">
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=spomenar/fill" class="nav-link" type="button">Upiši se u spomenar</a>
@@ -10,6 +13,8 @@
         <a href="<?php echo __SITE_URL; ?>/index.php?rt=login/processLogout" class="btn btn-danger" type="button">Logout</a>
     </div>
 </nav>
+
+<!-- JS Funckija koja dodaje klasu active za aktivni link navigacije -->
 <script>
     $(document).ready(function() {
         params = {};
