@@ -1,6 +1,8 @@
 <?php
 require_once __SITE_PATH . '/view/_header.php';
-?>
+
+if (isset($error) && isset($errorMessage) && $error) echo '<p class="alert alert-danger">' . $errorMessage . "</p>"; ?>
+
 <br>
 <br>
 <form method="post" action="<?php echo __SITE_URL . '/index.php?rt=spomenar/add_question' ?>">
